@@ -29,7 +29,7 @@ int main(){
     int gange;
 
     scanf("%lf\n", &vinkel);
-    scanf("%d", gange);
+    scanf("%d", &gange);
 
 
     double resultat = taylor_sine(vinkel,gange);

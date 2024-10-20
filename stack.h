@@ -1,6 +1,9 @@
 #pragma once
 
+#ifndef STACK_H
+#define STACK_H
 #include <stdbool.h>
+
 
 typedef struct node {
   int data;
@@ -12,7 +15,9 @@ typedef struct {
 } stack;
 
 void initialize(stack *s);
-void push(int element, stack *s);
+void push(int x, stack *s);
 int pop(stack *s);
 bool empty(stack *s);
 bool full(stack *s);
+
+#endif

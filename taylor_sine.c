@@ -1,25 +1,24 @@
 #include "taylor_sine.h"
-#include <stdio.h>
+#include <math.h>
 
+long long factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    long long fact = n * factorial(n-1);
+    return fact;
+}
 double taylor_sine(double x, int n) {
   // implement your function here
+    double sum = 0.0;
 
-  /*int fact = 1;
-  for (int i = 1; i<n; i++){
-    fact = fact *i;
-  }*/
+    for(int i = 0; i <n; ++i){
+        int fortegn = (i % 2 == 0) ? 1: -1;
+        int exponent = 2*i+1;
+        double power = pow(x,exponent);
+        long long fact = factorial(exponent);
 
-  double sum = 0.0;
-  
-  int fortegn = 1;
-  for (int i = 0; i<n; i++){
-    int potens = 2*i+1;
-    double led = fortegn * (1.0*x);
-    for (int j = 2; j <= potens; j++){
-      led = led * (x/j);
+        sum += fortegn * (power/fact);
     }
-    sum += led;
-    fortegn = -fortegn;
-  }
-  return sum;
+    return sum;
 }
